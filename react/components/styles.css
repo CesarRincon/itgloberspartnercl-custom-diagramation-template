@@ -3,10 +3,10 @@
 .grid__3,
 .grid__4 {
   display        : flex;
-  flex-wrap      : wrap;
   justify-content: center;
-  max-width      : 90%;
-  margin         : 0 auto;
+  align-items    : center;
+  height         : 28rem;
+
 }
 
 .grid__2>div:nth-child(1) {
@@ -46,31 +46,36 @@
 }
 
 .grid__itemBig {
-  margin    : 10px;
-  width     : calc(50% - 20px);
-  height    : 500px;
-  max-height: 500px;
+  display        : flex;
+  justify-content: center;
+  align-items: center;
+  margin         : 10px;
+  width          : calc(30% - 20px);
+  height         : 100%;
 }
 
 .grid__itemSmall {
-  margin        : 10px;
-  width         : calc(20% - 20px);
-  height        : 500px;
-  max-height    : 500px;
-  display       : flex;
-  flex-direction: column;
-  align-items   : center;
-  gap           : 2px;
+  margin         : 5px;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: space-between;
+  height         : 100%;
 }
 
-@media (max-width: 1024px) {
+.grid__itemSmall img {
+  width : 100%;
+  height: 49%;
+}
+
+@media (max-width: 768px) {
 
   .grid__1,
   .grid__2,
   .grid__3,
   .grid__4 {
     flex-direction: column;
-    align-items   : center;
+    height        : 100%;
   }
 
   .grid__itemBig {
@@ -78,11 +83,14 @@
   }
 
   .grid__itemSmall {
-    flex-direction : row;
-    justify-content: center;
-    width          : 100%;
-    height         : 310px;
+    flex-direction: row;
+    height        : 50%;
+    width         : 100%;
   }
 
+  .grid__itemSmall img {
+    width : 49%;
+    height: 100%;
+  }
 
 }
