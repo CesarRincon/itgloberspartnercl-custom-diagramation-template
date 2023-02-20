@@ -1,108 +1,75 @@
 📢 Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
-# APP NAME
+# Custom Diagramation
 
-<!-- DOCS-IGNORE:start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- DOCS-IGNORE:end -->
+![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)
 
-Under the app's name, you should explain the topic, giving a **brief description** of its **functionality** in a store when installed.
+The custom-diagramation-template component allows you to give multiple options to the client to change the position of the elements on the screen.
 
-Next, **add media** (either an image of a GIF) with the rendered components, so that users can better understand how the app works in practice. 
+Desktop
+  Grid 1
+<img width="1125" alt="image" src="https://user-images.githubusercontent.com/90701896/220188438-59a82ee5-aa50-47b1-88ee-56ff99cf91dd.png">
 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+Desktop Grid 2
+<img width="824" alt="image" src="https://user-images.githubusercontent.com/90701896/220188549-9b0281d8-8789-425a-b08c-3250529ef093.png">
+
+Desktop Grid 3
+<img width="828" alt="image" src="https://user-images.githubusercontent.com/90701896/220188623-d48504ee-8589-4f62-817c-ee0ac3429865.png">
+
+Desktop Grid 4
+<img width="843" alt="image" src="https://user-images.githubusercontent.com/90701896/220188705-ad3577a7-53e2-46a5-9577-11924cec1689.png">
+
+Mobile grid <br>
+<img width="295" alt="image" src="https://user-images.githubusercontent.com/90701896/220188982-06006758-48e3-4542-8f8d-5b33c6e0b415.png">
+
+<img width="295" alt="image" src="https://user-images.githubusercontent.com/90701896/220189081-916abb29-5198-4eaa-abd1-b674b6cba52d.png">
 
 ## Configuration 
 
-In this section, you first must **add the primary instructions** that will allow users to use the app's blocks in their store, such as:
-
-1. Adding the app as a theme dependency in the `manifest.json` file;
-2. Declaring the app's main block in a given theme template or inside another block from the theme.
-
-Remember to add a table with all blocks exported by the app and their descriptions. You can verify an example of it on the [Search Result documentation](https://vtex.io/docs/components/all/vtex.search-result@3.56.1/). 
-
-Next, add the **props table** containing your block's props. 
-
-If the app exports more than one block, create several tables - one for each block. For example:
-
-### `block-1` props
-
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
-
-
-### `block-2` props
-
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
-
-Prop types are: 
-
-- `string` 
-- `enum` 
-- `number` 
-- `boolean` 
-- `object` 
-- `array` 
-
-When documenting a prop whose type is `object` or `array` another prop table will be needed. You can create it following the example below:
-
-- `propName` object:
-
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
-
-
-Remember to also use this Configuration section to  **showcase any necessary disclaimer** related to the app and its blocks, such as the different behavior it may display during its configuration. 
-
-## Modus Operandi *(not mandatory)*
-
-There are scenarios in which an app can behave differently in a store, according to how it was added to the catalog, for example. It's crucial to go through these **behavioral changes** in this section, allowing users to fully understand the **practical application** of the app in their store.
-
-If you feel compelled to give further details about the app, such as it's **relationship with the VTEX admin**, don't hesitate to use this section. 
+1. Import the special-diagramation app to your theme's dependencies in the manifest.json, for example:
+```json
+  dependencies: {
+    "{vendor}.special-diagramation": "0.x"
+  }
+ ```
+ 
+ 2. Add the custom-grid block to the store-theme. For example:
+```json
+ "flex-layout.row#custom-grid-container": {
+    "children": [
+      "custom-grid"
+    ]
+  },
+  "custom-grid": {
+    "children": [
+      "imagen#grilla1",
+      "image#grilla2",
+      "image#grilla3",
+      "image#grilla4",
+      "image#grilla5"
+    ]
+  }
+   ```
+|  Block name     | Description                                     |
+| -------------- | ----------------------------------------------- |
+| `custom-grid` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red)  Top level block that must be declared in the store theme block to render a default custom grid block.   |
 
 ## Customization
 
-The first thing that should be present in this section is the sentence below, showing users the recipe pertaining to CSS customization in apps:
+In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
 
-`In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).`
-
-Thereafter, you should add a single column table with the available CSS handles for the app, like the one below. Note that the Handles must be ordered alphabetically.
-
-| CSS Handles |
+|CSS HANDLES |
 | ----------- | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` |
+|` grid__${gridType} `|
+|` gridTypeClass `|
+|` grid__itemBig `|
+|` grid__itemSmall `|
 
-
-If there are none, add the following sentence instead:
-
-`No CSS Handles are available yet for the app customization.`
-
-<!-- DOCS-IGNORE:start -->
-
-## Contributors ✨
+## Contributors 
 
 Thanks goes to these wonderful people:
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
-
-<!-- DOCS-IGNORE:end -->
 
 ---- 
 
