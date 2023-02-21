@@ -5,7 +5,7 @@
   display        : flex;
   justify-content: center;
   align-items    : center;
-  height         : 28rem;
+  height         : 32rem;
 
 }
 
@@ -48,7 +48,7 @@
 .grid__itemBig {
   display        : flex;
   justify-content: center;
-  align-items: center;
+  align-items    : center;
   margin         : 10px;
   width          : calc(30% - 20px);
   height         : 100%;
